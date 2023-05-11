@@ -1,0 +1,38 @@
+{
+  "idToTestNameHash": {
+    "FrScTe1": "From Scratch Tests coolGreeting - should return proper greeting based off coolness",
+    "FrScTe2": "From Scratch Tests haveBirthday - should increment age by 1",
+    "FrScTe3": "From Scratch Tests becomeSecretAgent - should remove name and add spyHandle",
+    "FrScTe4": "From Scratch Tests carMaker - should return a car object",
+    "FrScTe5": "From Scratch Tests weAreNotFriends - should remove last friend from friends array",
+    "FrScTe6": "From Scratch Tests logAllKeys - should log all keys of an object",
+    "FrScTe7": "From Scratch Tests listHobbies - should log all hobbies of an object",
+    "FrScTe8": "From Scratch Tests getNextOpponent - should return next opponent"
+  },
+  "testNameToIdHash": {
+    "From Scratch Tests coolGreeting - should return proper greeting based off coolness": "FrScTe1",
+    "From Scratch Tests haveBirthday - should increment age by 1": "FrScTe2",
+    "From Scratch Tests becomeSecretAgent - should remove name and add spyHandle": "FrScTe3",
+    "From Scratch Tests carMaker - should return a car object": "FrScTe4",
+    "From Scratch Tests weAreNotFriends - should remove last friend from friends array": "FrScTe5",
+    "From Scratch Tests logAllKeys - should log all keys of an object": "FrScTe6",
+    "From Scratch Tests listHobbies - should log all hobbies of an object": "FrScTe7",
+    "From Scratch Tests getNextOpponent - should return next opponent": "FrScTe8"
+  },
+  "testScores": {
+    "From Scratch Tests": {
+      "FrScTe1": 0,
+      "FrScTe2": 0,
+      "FrScTe3": 0,
+      "FrScTe4": 0,
+      "FrScTe5": 0,
+      "FrScTe6": 0,
+      "FrScTe7": 0,
+      "FrScTe8": 0
+    }
+  },
+  "humanReadable": {
+    "From Scratch Tests": "0/8",
+    "finalTestScore": "FINAL SCORE: 0/8"
+  }
+}

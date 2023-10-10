@@ -9,6 +9,9 @@ const {
   logAllKeys,
   listHobbies,
   getNextOpponent,
+  listAllKeys,
+  listAllValues,
+  convertToMatrix,
 } = require('./from-scratch');
 
 const testSuiteName = 'From Scratch Tests';
@@ -220,6 +223,104 @@ describe(testSuiteName, () => {
     scoreCounter.correct(expect);
   });
 
+  it('listAllKeys - should return all keys of an object', () => {
+    const person = {
+      name: 'Sara',
+      age: 30,
+      bio: 'What a legend',
+    };
+
+    const car = {
+      name: 'Civic',
+      maker: 'Honda',
+      year: 2010,
+    };
+
+    expect(listAllKeys(person)).toEqual(['name', 'age', 'bio']);
+    expect(listAllKeys(car)).toEqual(['name', 'maker', 'year']);
+
+    scoreCounter.correct(expect);
+  });
+
+  it('listAllValues - should return all values of an object', () => {
+    const person = {
+      name: 'Sara',
+      age: 30,
+      bio: 'What a legend',
+    };
+
+    const car = {
+      name: 'Civic',
+      maker: 'Honda',
+      year: 2010,
+    };
+
+    expect(listAllValues(person)).toEqual(['Sara', 30, 'What a legend']);
+    expect(listAllValues(car)).toEqual(['Civic', 'Honda', 2010]);
+
+    scoreCounter.correct(expect);
+  });
+
+  it('convertToMatrix - should return a matrix of objects where the first nested array is the keys, and all following arrays are the values', () => {
+    const users = [
+      {
+        name: 'Sara',
+        age: 30,
+        bio: 'What a legend',
+      },
+      {
+        name: 'Bob',
+        age: 30,
+        bio: "Kind of mean if we're being honest",
+      },
+    ];
+
+    expect(convertToMatrix(users)).toEqual([
+      ['name', 'age', 'bio'],
+      ['Sara', 30, 'What a legend'],
+      ['Bob', 30, "Kind of mean if we're being honest"],
+    ]);
+
+    // Even if there's only one object, it should work!
+    users.pop();
+
+    expect(convertToMatrix(users)).toEqual([
+      ['name', 'age', 'bio'],
+      ['Sara', 30, 'What a legend'],
+    ]);
+
+    expect(convertToMatrix([])).toEqual([]);
+
+    const cats = [
+      {
+        name: 'Fluffy',
+        breed: 'Persian',
+        isAJerk: true,
+        isPerfect: true,
+      },
+      {
+        name: 'Mittens',
+        breed: 'Tabby',
+        isAJerk: true,
+        isPerfect: true,
+      },
+      {
+        name: 'Socks',
+        breed: 'Calico',
+        isAJerk: false,
+        isPerfect: true,
+      },
+    ];
+
+    expect(convertToMatrix(cats)).toEqual([
+      ['name', 'breed', 'isAJerk', 'isPerfect'],
+      ['Fluffy', 'Persian', true, true],
+      ['Mittens', 'Tabby', true, true],
+      ['Socks', 'Calico', false, true],
+    ]);
+
+    scoreCounter.correct(expect);
+  });
   // IGNORE PLEASE
   beforeEach(() => scoreCounter.add(expect));
   afterAll(scoreCounter.export);

@@ -22,6 +22,15 @@ const listHobbies = () => {
 const getNextOpponent = () => {
 };
 
+const listAllKeys = () => {
+};
+
+const listAllValues = () => {
+};
+
+const convertToMatrix = () => {
+};
+
 module.exports = {
   coolGreeting,
   haveBirthday,
@@ -31,4 +40,7 @@ module.exports = {
   logAllKeys,
   listHobbies,
   getNextOpponent,
+  listAllKeys,
+  listAllValues,
+  convertToMatrix,
 };

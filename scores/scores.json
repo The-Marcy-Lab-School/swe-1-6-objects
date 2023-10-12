@@ -1,30 +1,4 @@
 {
-  "idToTestNameHash": {
-    "FrScTe1": "From Scratch Tests coolGreeting - should return proper greeting based off coolness",
-    "FrScTe2": "From Scratch Tests haveBirthday - should increment age by 1",
-    "FrScTe3": "From Scratch Tests becomeSecretAgent - should remove name and add spyHandle",
-    "FrScTe4": "From Scratch Tests carMaker - should return a car object",
-    "FrScTe5": "From Scratch Tests weAreNotFriends - should remove last friend from friends array",
-    "FrScTe6": "From Scratch Tests logAllKeys - should log all keys of an object",
-    "FrScTe7": "From Scratch Tests listHobbies - should log all hobbies of an object",
-    "FrScTe8": "From Scratch Tests getNextOpponent - should return next opponent",
-    "FrScTe9": "From Scratch Tests listAllKeys - should return all keys of an object",
-    "FrScTe10": "From Scratch Tests listAllValues - should return all values of an object",
-    "FrScTe11": "From Scratch Tests convertToMatrix - should return a matrix of objects where the first nested array is the keys, and all following arrays are the values"
-  },
-  "testNameToIdHash": {
-    "From Scratch Tests coolGreeting - should return proper greeting based off coolness": "FrScTe1",
-    "From Scratch Tests haveBirthday - should increment age by 1": "FrScTe2",
-    "From Scratch Tests becomeSecretAgent - should remove name and add spyHandle": "FrScTe3",
-    "From Scratch Tests carMaker - should return a car object": "FrScTe4",
-    "From Scratch Tests weAreNotFriends - should remove last friend from friends array": "FrScTe5",
-    "From Scratch Tests logAllKeys - should log all keys of an object": "FrScTe6",
-    "From Scratch Tests listHobbies - should log all hobbies of an object": "FrScTe7",
-    "From Scratch Tests getNextOpponent - should return next opponent": "FrScTe8",
-    "From Scratch Tests listAllKeys - should return all keys of an object": "FrScTe9",
-    "From Scratch Tests listAllValues - should return all values of an object": "FrScTe10",
-    "From Scratch Tests convertToMatrix - should return a matrix of objects where the first nested array is the keys, and all following arrays are the values": "FrScTe11"
-  },
   "testScores": {
     "From Scratch Tests": {
       "FrScTe1": 0,
@@ -36,12 +10,35 @@
       "FrScTe7": 0,
       "FrScTe8": 0,
       "FrScTe9": 0,
-      "FrScTe10": 0,
-      "FrScTe11": 0
+      "FrScTe10": 0
     }
   },
+  "idToTestNameHash": {
+    "FrScTe1": "From Scratch Tests coolGreeting - should return proper greeting based off coolness",
+    "FrScTe2": "From Scratch Tests haveBirthday - should increment age by 1",
+    "FrScTe3": "From Scratch Tests becomeSecretAgent - should remove name and add spyHandle",
+    "FrScTe4": "From Scratch Tests carMaker - should return a car object",
+    "FrScTe5": "From Scratch Tests weAreNotFriends - should remove last friend from friends array",
+    "FrScTe6": "From Scratch Tests listHobbies - should log all hobbies of an object",
+    "FrScTe7": "From Scratch Tests getNextOpponent - should return next opponent",
+    "FrScTe8": "From Scratch Tests listAllKeys - should return all keys of an object",
+    "FrScTe9": "From Scratch Tests listAllValues - should return all values of an object",
+    "FrScTe10": "From Scratch Tests convertToMatrix - should return a matrix of objects where the first nested array is the keys, and all following arrays are the values"
+  },
+  "testNameToIdHash": {
+    "From Scratch Tests coolGreeting - should return proper greeting based off coolness": "FrScTe1",
+    "From Scratch Tests haveBirthday - should increment age by 1": "FrScTe2",
+    "From Scratch Tests becomeSecretAgent - should remove name and add spyHandle": "FrScTe3",
+    "From Scratch Tests carMaker - should return a car object": "FrScTe4",
+    "From Scratch Tests weAreNotFriends - should remove last friend from friends array": "FrScTe5",
+    "From Scratch Tests listHobbies - should log all hobbies of an object": "FrScTe6",
+    "From Scratch Tests getNextOpponent - should return next opponent": "FrScTe7",
+    "From Scratch Tests listAllKeys - should return all keys of an object": "FrScTe8",
+    "From Scratch Tests listAllValues - should return all values of an object": "FrScTe9",
+    "From Scratch Tests convertToMatrix - should return a matrix of objects where the first nested array is the keys, and all following arrays are the values": "FrScTe10"
+  },
   "humanReadable": {
-    "From Scratch Tests": "0/11",
-    "finalTestScore": "FINAL SCORE: 0/11"
+    "From Scratch Tests": "0/10",
+    "finalTestScore": "FINAL SCORE: 0/10"
   }
 }

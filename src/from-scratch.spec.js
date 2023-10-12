@@ -6,7 +6,6 @@ const {
   becomeSecretAgent,
   carMaker,
   weAreNotFriends,
-  logAllKeys,
   listHobbies,
   getNextOpponent,
   listAllKeys,
@@ -119,29 +118,6 @@ describe(testSuiteName, () => {
 
     expect(weAreNotFriends(person1)).toEqual(undefined);
     expect(person1.friends).toEqual([]);
-
-    scoreCounter.correct(expect);
-  });
-
-  it('logAllKeys - should log all keys of an object', () => {
-    const person = {
-      name: 'Sara',
-      age: 30,
-      bio: 'What a legend',
-    };
-
-    const car = {
-      name: 'Civic',
-      maker: 'Honda',
-      year: 2010,
-    };
-
-    logAllKeys(person);
-    expect(log.mock.calls).toEqual([['key:', 'name'], ['key:', 'age'], ['key:', 'bio']]);
-
-    jest.clearAllMocks();
-    logAllKeys(car);
-    expect(log.mock.calls).toEqual([['key:', 'name'], ['key:', 'maker'], ['key:', 'year']]);
 
     scoreCounter.correct(expect);
   });

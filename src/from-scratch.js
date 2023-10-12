@@ -13,9 +13,6 @@ const carMaker = () => {
 const weAreNotFriends = () => {
 };
 
-const logAllKeys = () => {
-};
-
 const listHobbies = () => {
 };
 
@@ -37,7 +34,6 @@ module.exports = {
   becomeSecretAgent,
   carMaker,
   weAreNotFriends,
-  logAllKeys,
   listHobbies,
   getNextOpponent,
   listAllKeys,

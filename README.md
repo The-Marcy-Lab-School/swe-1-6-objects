@@ -1,25 +1,75 @@
-# Assignment 1.1.2 - Objects
+# Objects
 
-- [Assignment 1.1.2 - Objects](#assignment-112---objects)
-  - [Before you start](#before-you-start)
-- [Question 1 - coolGreeting()](#question-1---coolgreeting)
-- [Question 2 - haveBirthday()](#question-2---havebirthday)
-- [Question 3 - becomeSecretAgent()](#question-3---becomesecretagent)
-- [Question 4 - carMaker()](#question-4---carmaker)
-- [Question 5 - weAreNotFriends()](#question-5---wearenotfriends)
-- [Question 6 - listHobbies()](#question-6---listhobbies)
-- [Question 7 - getNextOpponent()](#question-7---getnextopponent)
-- [Question 8 - listAllKeys()](#question-8---listallkeys)
-- [Question 9 - listAllValues()](#question-9---listallvalues)
-- [Question 10 - convertToMatrix()](#question-10---converttomatrix)
-- [Short Answers](#short-answers)
+**Table of Contents:**
+- [Reminders](#reminders)
+  - [Asking ChatGPT for Help](#asking-chatgpt-for-help)
+  - [Be Okay With Being "Provisionally Complete"](#be-okay-with-being-provisionally-complete)
+- [Setup](#setup)
+- [Before you start](#before-you-start)
+- [From Scratch Questions](#from-scratch-questions)
+  - [Question 1 - coolGreeting()](#question-1---coolgreeting)
+  - [Question 2 - haveBirthday()](#question-2---havebirthday)
+  - [Question 3 - becomeSecretAgent()](#question-3---becomesecretagent)
+  - [Question 4 - carMaker()](#question-4---carmaker)
+  - [Question 5 - weAreNotFriends()](#question-5---wearenotfriends)
+  - [Question 6 - listHobbies()](#question-6---listhobbies)
+  - [Question 7 - getNextOpponent()](#question-7---getnextopponent)
+  - [Question 8 - listAllKeys()](#question-8---listallkeys)
+  - [Question 9 - listAllValues()](#question-9---listallvalues)
+  - [Question 10 - convertToMatrix()](#question-10---converttomatrix)
+
+## Reminders
+
+### Asking ChatGPT for Help
+
+If you’re stuck, you may use ChatGPT to clarify the assignment — but not to solve it for you. To do this, copy the meta-prompt below into ChatGPT along with the assignment question.
+
+> You are acting as a tutor. Your job is to explain what this coding question is asking, clarify confusing wording, and highlight the relevant concepts students need to know — but do not provide the full solution or code that directly answers the question. Instead, focus on rephrasing the problem in simpler terms, identifying what’s being tested, and suggesting what steps or thought processes might help. Ask guiding questions to ensure the student is thinking critically. Do not write the final function, algorithm, or code implementation.
+
+Be mindful of your AI usage on assignments. AI can be a great tool to help your learning but it can also be detrimental if you let it do too much of the thinking for you.
+
+### Be Okay With Being "Provisionally Complete"
+
+At Marcy, we will deem an assignment as "complete" if the solution passes at least **75%** of the automated tests. 
+
+However, we know many of you will feel the urge to hold off on submitting until your assignment feels 100% perfect. That drive for excellence is an asset!
+
+But perfectionism can also get in the way of learning — especially when we need to cover a lot in a short amount of time.
+
+That’s why we encourage you to be comfortable with being **“provisionally complete.”** This means:
+
+- Submitting your work even if it isn’t perfect yet
+- Treating submission as a checkpoint, not a finish line
+- Committing to return, revise, and improve later
+
+Learning to move forward with provisional completeness will help you make steady progress while still building the habit of continuous improvement.
+
+## Setup
+
+For guidance on setting up and submitting this assignment, refer to the Marcy lab School Docs How-To guide for [Working with Short Response and Coding Assignments](https://marcylabschool.gitbook.io/marcy-lab-school-docs/how-tos/working-with-assignments#how-to-work-on-assignments).
+
+Here are some useful commands to remember.
+
+```sh
+npm i                   # install dependencies
+git checkout -b draft   # switch to the draft branch before starting
+
+npm test # run the automated tests
+npm run test:w # run the automated tests and rerun them each time you save a change
+
+git add -A              # add a changed file to the staging area
+git commit -m 'message' # create a commit with the changes
+git push                # push the new commit to the remote repo
+```
 
 ## Before you start
 There are some helpful images in `ref-examples/` again. Also, now that we have objects, we have to be careful with arguments. Are we passing in *individual* properties, or objects? And if we're passing in objects, is it a pure function that does not mutate, or a function that specifically alters the given object?
 
 We aren't going to tell you which functions are pure this time, you have to check what the tests expect. Be careful and good luck!
 
-# Question 1 - coolGreeting()
+## From Scratch Questions
+
+### Question 1 - coolGreeting()
 Write a function `coolGreeting()` that takes a single argument: an object `person`. The `person` object will look like:
 
 ```js
@@ -33,21 +83,22 @@ Write a function `coolGreeting()` that takes a single argument: an object `perso
 
 If `isCool` is true, then the function returns the string: "What is UP [UPPERCASED-NAME]? How you been doin'?", otherwise it returns the string "Greetings [name as entered], how have you been lately?"
 
-# Question 2 - haveBirthday()
+
+### Question 2 - haveBirthday()
 Write a function `haveBirthday()` that takes in an object `person`. It should increase their `age` property by one. The function returns nothing.
 
 Hint: *Be careful with destructuring when modifying object properties*.
 
-# Question 3 - becomeSecretAgent()
+### Question 3 - becomeSecretAgent()
 Write a function `becomeSecretAgent()` that takes 2 arguments: an object `person` and a string `spyHandle`. `becomeSecretAgent()` should delete the `name` property from `person` and add the `spyHandle` value as a property with the same name.
 
-# Question 4 - carMaker()
+### Question 4 - carMaker()
 Write a function `carMaker` that takes 3 arguments: a string `name`, a string `maker`, and a number `year`. The function should return an object with 4 properties: `name`, `year`, `maker`, and a boolean `needsOilChange`. `needsOilChange` defaults to `false`.
 
-# Question 5 - weAreNotFriends()
+### Question 5 - weAreNotFriends()
 Write a function `weAreNotFriends()` that takes in a single `person` object. This function should permanently remove the *last* name from the `person.friends` array (an array of strings), *and* return this value.
 
-# Question 6 - listHobbies()
+### Question 6 - listHobbies()
 Write a function `listHobbies()` that takes in an object `person`. The `person` is shaped like:
 
 ```js
@@ -67,7 +118,7 @@ listHobbies(jo);
 // Jo likes baking.
 ```
 
-# Question 7 - getNextOpponent()
+### Question 7 - getNextOpponent()
 Write a function `getNextOpponent()` that takes in an object `team`. The `team` object is complex and shaped like:
 
 ```js
@@ -106,13 +157,13 @@ getNextOpponent(fighters);
 // returns 'Dunkaroos'
 ```
 
-# Question 8 - listAllKeys()
+### Question 8 - listAllKeys()
 Write a function `listAllKeys()` that takes in an object. The function should return an array of all the keys on that object. There's a built in method to do this, do you know it?
 
-# Question 9 - listAllValues()
+### Question 9 - listAllValues()
 Write a function `listAllValues()` that takes in an object. The function should return an array of all the *values* on that object. You can do this a few ways, but just like the above there's a method just for this. Look it up!
 
-# Question 10 - convertToMatrix()
+### Question 10 - convertToMatrix()
 Write a function `convertToMatrix()` that takes in an array of objects. There can be any number of objects in the array (0 is possible), but each object will *always have* the exact same keys as each other. What we want to do is create a matrix version of this data. Remember, a matrix is an array of arrays. In this case, the first child array will be just the keys of the objects, and the rest of the arrays will be the values of the objects. So if we have this array of `user` objects:
 
 ```js
@@ -147,6 +198,3 @@ convertToMatrix([]);
 ```
 
 Check the tests for more specifics. This is a tricky question that relies on understanding object iteration. Think it through!
-
-# Short Answers
-These are really important ones, please attempt all of them! And make sure you watch the video explaining what JSON is in question 4!

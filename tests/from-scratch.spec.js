@@ -1,5 +1,3 @@
-const path = require('path');
-const ScoreCounter = require('score-tests');
 const {
   coolGreeting,
   haveBirthday,
@@ -14,8 +12,6 @@ const {
 } = require('../src/from-scratch');
 
 const testSuiteName = 'From Scratch Tests';
-const scoresDir = path.join(__dirname, '..', 'scores');
-const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
 const log = jest.spyOn(console, 'log').mockImplementation(() => { });
 
@@ -39,8 +35,6 @@ describe(testSuiteName, () => {
 
     expect(coolGreeting(coolPerson)).toEqual("What is UP SARA? How you been doin'?");
     expect(coolGreeting(notCoolPerson)).toEqual('Greetings Bob, how have you been lately?');
-
-    scoreCounter.correct(expect);
   });
 
   it('haveBirthday - should increment age by 1', () => {
@@ -59,8 +53,6 @@ describe(testSuiteName, () => {
 
     haveBirthday(person3);
     expect(person3.age).toEqual(age3 + 1);
-
-    scoreCounter.correct(expect);
   });
 
   it('becomeSecretAgent - should remove name and add spyHandle', () => {
@@ -78,8 +70,6 @@ describe(testSuiteName, () => {
 
     becomeSecretAgent(person2, '008');
     expect(person2).toEqual({ spyHandle: '008', age: 30 });
-
-    scoreCounter.correct(expect);
   });
 
   it('carMaker - should return a car object', () => {
@@ -96,8 +86,6 @@ describe(testSuiteName, () => {
       year: 2020,
       needsOilChange: false,
     });
-
-    scoreCounter.correct(expect);
   });
 
   it('weAreNotFriends - should remove last friend from friends array', () => {
@@ -118,8 +106,6 @@ describe(testSuiteName, () => {
 
     expect(weAreNotFriends(person1)).toEqual(undefined);
     expect(person1.friends).toEqual([]);
-
-    scoreCounter.correct(expect);
   });
 
   it('listHobbies - should log all hobbies of an object', () => {
@@ -150,8 +136,6 @@ describe(testSuiteName, () => {
       ['Jane likes swimming.'],
     ]);
     jest.clearAllMocks();
-
-    scoreCounter.correct(expect);
   });
 
   it('getNextOpponent - should return next opponent', () => {
@@ -195,8 +179,6 @@ describe(testSuiteName, () => {
     fighters.matches.shift();
 
     expect(getNextOpponent(fighters)).toEqual(null);
-
-    scoreCounter.correct(expect);
   });
 
   it('listAllKeys - should return all keys of an object', () => {
@@ -214,8 +196,6 @@ describe(testSuiteName, () => {
 
     expect(listAllKeys(person)).toEqual(['name', 'age', 'bio']);
     expect(listAllKeys(car)).toEqual(['name', 'maker', 'year']);
-
-    scoreCounter.correct(expect);
   });
 
   it('listAllValues - should return all values of an object', () => {
@@ -233,8 +213,6 @@ describe(testSuiteName, () => {
 
     expect(listAllValues(person)).toEqual(['Sara', 30, 'What a legend']);
     expect(listAllValues(car)).toEqual(['Civic', 'Honda', 2010]);
-
-    scoreCounter.correct(expect);
   });
 
   it('convertToMatrix - should return a matrix of objects where the first nested array is the keys, and all following arrays are the values', () => {
@@ -294,10 +272,5 @@ describe(testSuiteName, () => {
       ['Mittens', 'Tabby', true, true],
       ['Socks', 'Calico', false, true],
     ]);
-
-    scoreCounter.correct(expect);
   });
-  // IGNORE PLEASE
-  beforeEach(() => scoreCounter.add(expect));
-  afterAll(scoreCounter.export);
 });

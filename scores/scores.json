@@ -1,0 +1,44 @@
+{
+  "testScores": {
+    "From Scratch Tests": {
+      "FrScTe1": 0,
+      "FrScTe2": 0,
+      "FrScTe3": 0,
+      "FrScTe4": 0,
+      "FrScTe5": 0,
+      "FrScTe6": 0,
+      "FrScTe7": 0,
+      "FrScTe8": 0,
+      "FrScTe9": 0,
+      "FrScTe10": 0
+    }
+  },
+  "idToTestNameHash": {
+    "FrScTe1": "From Scratch Tests cool_greeting - should return proper greeting based off coolness",
+    "FrScTe2": "From Scratch Tests have_birthday - should increment age by 1",
+    "FrScTe3": "From Scratch Tests become_secret_agent - should remove name and add spy_handle",
+    "FrScTe4": "From Scratch Tests car_maker - should return a car dictionary",
+    "FrScTe5": "From Scratch Tests we_are_not_friends - should remove last friend from friends list",
+    "FrScTe6": "From Scratch Tests list_hobbies - should print all hobbies of a person",
+    "FrScTe7": "From Scratch Tests get_next_opponent - should return next opponent",
+    "FrScTe8": "From Scratch Tests list_all_keys - should return all keys of a dictionary",
+    "FrScTe9": "From Scratch Tests list_all_values - should return all values of a dictionary",
+    "FrScTe10": "From Scratch Tests convert_to_matrix - returns a matrix whose first row is the keys"
+  },
+  "testNameToIdHash": {
+    "From Scratch Tests cool_greeting - should return proper greeting based off coolness": "FrScTe1",
+    "From Scratch Tests have_birthday - should increment age by 1": "FrScTe2",
+    "From Scratch Tests become_secret_agent - should remove name and add spy_handle": "FrScTe3",
+    "From Scratch Tests car_maker - should return a car dictionary": "FrScTe4",
+    "From Scratch Tests we_are_not_friends - should remove last friend from friends list": "FrScTe5",
+    "From Scratch Tests list_hobbies - should print all hobbies of a person": "FrScTe6",
+    "From Scratch Tests get_next_opponent - should return next opponent": "FrScTe7",
+    "From Scratch Tests list_all_keys - should return all keys of a dictionary": "FrScTe8",
+    "From Scratch Tests list_all_values - should return all values of a dictionary": "FrScTe9",
+    "From Scratch Tests convert_to_matrix - returns a matrix whose first row is the keys": "FrScTe10"
+  },
+  "humanReadable": {
+    "From Scratch Tests": "0/10",
+    "finalTestScore": "FINAL SCORE: 0/10"
+  }
+}

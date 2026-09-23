@@ -1,200 +1,242 @@
-# Objects
+# Dictionaries
 
-**Table of Contents:**
-- [Reminders](#reminders)
-  - [Asking ChatGPT for Help](#asking-chatgpt-for-help)
-  - [Be Okay With Being "Provisionally Complete"](#be-okay-with-being-provisionally-complete)
+Practice storing related data together in dictionaries, reading it back out,
+and changing it.
+
+**Practicing:** dictionaries, nested data, keys and values
+
+- [AI Use on This Assignment](#ai-use-on-this-assignment)
 - [Setup](#setup)
-- [Before you start](#before-you-start)
-- [From Scratch Questions](#from-scratch-questions)
-  - [Question 1 - coolGreeting()](#question-1---coolgreeting)
-  - [Question 2 - haveBirthday()](#question-2---havebirthday)
-  - [Question 3 - becomeSecretAgent()](#question-3---becomesecretagent)
-  - [Question 4 - carMaker()](#question-4---carmaker)
-  - [Question 5 - weAreNotFriends()](#question-5---wearenotfriends)
-  - [Question 6 - listHobbies()](#question-6---listhobbies)
-  - [Question 7 - getNextOpponent()](#question-7---getnextopponent)
-  - [Question 8 - listAllKeys()](#question-8---listallkeys)
-  - [Question 9 - listAllValues()](#question-9---listallvalues)
-  - [Question 10 - convertToMatrix()](#question-10---converttomatrix)
+- [Before You Start](#before-you-start)
+- [From Scratch](#from-scratch)
+  - [Question 1: `cool_greeting`](#question-1-cool_greeting)
+  - [Question 2: `have_birthday`](#question-2-have_birthday)
+  - [Question 3: `become_secret_agent`](#question-3-become_secret_agent)
+  - [Question 4: `car_maker`](#question-4-car_maker)
+  - [Question 5: `we_are_not_friends`](#question-5-we_are_not_friends)
+  - [Question 6: `list_hobbies`](#question-6-list_hobbies)
+  - [Question 7: `get_next_opponent`](#question-7-get_next_opponent)
+  - [Question 8: `list_all_keys`](#question-8-list_all_keys)
+  - [Question 9: `list_all_values`](#question-9-list_all_values)
+  - [Question 10: `convert_to_matrix`](#question-10-convert_to_matrix)
+- [Submitting](#submitting)
+- [Good luck!](#good-luck)
 
-## Reminders
+## AI Use on This Assignment
 
-### Asking ChatGPT for Help
+Use whichever mode matches where you are with this material. Both are fine,
+and most people move between them as a concept clicks.
 
-If you’re stuck, you may use ChatGPT to clarify the assignment — but not to solve it for you. To do this, copy the meta-prompt below into ChatGPT along with the assignment question.
+**Tutor mode.** The AI explains, questions, quizzes, and critiques, and you
+write every line you submit. For this assignment that means asking it how to
+reach a value nested two levels deep, or having it quiz you until you can
+predict what your own code will do. Ask it a hundred questions — that is the
+whole point. What you do not do is ask it for the function. Paste this at the
+start of a chat and it will hold for the rest of the conversation:
 
-> You are acting as a tutor. Your job is to explain what this coding question is asking, clarify confusing wording, and highlight the relevant concepts students need to know — but do not provide the full solution or code that directly answers the question. Instead, focus on rephrasing the problem in simpler terms, identifying what’s being tested, and suggesting what steps or thought processes might help. Ask guiding questions to ensure the student is thinking critically. Do not write the final function, algorithm, or code implementation.
+> You are acting as a tutor. Your job is to explain what this coding question
+> is asking, clarify confusing wording, and highlight the relevant concepts I
+> need to know — but do not provide the full solution or code that directly
+> answers the question. Instead, rephrase the problem in simpler terms,
+> identify what is being tested, and suggest what steps or thought processes
+> might help. Ask me guiding questions to make sure I am thinking critically.
+> Do not write the final function, algorithm, or code implementation.
 
-Be mindful of your AI usage on assignments. AI can be a great tool to help your learning but it can also be detrimental if you let it do too much of the thinking for you.
+**Implementer mode.** You write a specification first, the AI writes code from
+it, and then you verify that code line by line. For this assignment your spec
+must name every key each function reads or writes, and say whether it changes
+the dictionary or returns a new one. If what comes back does more than you
+asked for, reject it — over-delivery is a defect, and catching it is part of
+the job.
 
-### Be Okay With Being "Provisionally Complete"
-
-At Marcy, we will deem an assignment as "complete" if the solution passes at least **75%** of the automated tests. 
-
-However, we know many of you will feel the urge to hold off on submitting until your assignment feels 100% perfect. That drive for excellence is an asset!
-
-But perfectionism can also get in the way of learning — especially when we need to cover a lot in a short amount of time.
-
-That’s why we encourage you to be comfortable with being **“provisionally complete.”** This means:
-
-- Submitting your work even if it isn’t perfect yet
-- Treating submission as a checkpoint, not a finish line
-- Committing to return, revise, and improve later
-
-Learning to move forward with provisional completeness will help you make steady progress while still building the habit of continuous improvement.
+You own every line either way, and you will be asked to explain it.
 
 ## Setup
 
-For guidance on setting up and submitting this assignment, refer to the Marcy lab School Docs How-To guide for [Working with Short Response and Coding Assignments](https://marcylabschool.gitbook.io/marcy-lab-school-docs/how-tos/working-with-assignments#how-to-work-on-assignments).
-
-Here are some useful commands to remember.
+Work in `development/mod-1`. Make a draft branch before you start.
 
 ```sh
-npm i                   # install dependencies
-git checkout -b draft   # switch to the draft branch before starting
-
-npm test # run the automated tests
-npm run test:w # run the automated tests and rerun them each time you save a change
-
-git add -A              # add a changed file to the staging area
-git commit -m 'message' # create a commit with the changes
-git push                # push the new commit to the remote repo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+git checkout -b draft
 ```
 
-## Before you start
-There are some helpful images in `ref-examples/` again. Also, now that we have objects, we have to be careful with arguments. Are we passing in *individual* properties, or objects? And if we're passing in objects, is it a pure function that does not mutate, or a function that specifically alters the given object?
+Run `pytest` for everything, or `pytest -k car_maker` for one question. Scores
+land in `scores/scores.json`.
 
-We aren't going to tell you which functions are pure this time, you have to check what the tests expect. Be careful and good luck!
+75% of tests passing counts as complete. Submit at that point even if it is
+not perfect. Treat submitting as a checkpoint rather than a finish line, and
+come back to improve it.
 
-## From Scratch Questions
+## Before You Start
 
-### Question 1 - coolGreeting()
-Write a function `coolGreeting()` that takes a single argument: an object `person`. The `person` object will look like:
+A **dictionary** stores values under names you choose, called **keys**. A
+list is a good fit for many similar things. A dictionary is a good fit for one
+thing with several pieces of data attached.
 
-```js
-{
-  name: 'Sara',
-  bio: 'Too cool 4 skool.',
-  age: 32,
-  isCool: true
-}
+```python
+person = {"name": "Sara", "age": 30}
+
+person["name"]          # "Sara"
+person["age"] = 31      # change a value
+person["bio"] = "Hi"    # add a new key
+del person["age"]       # remove one
 ```
 
-If `isCool` is true, then the function returns the string: "What is UP [UPPERCASED-NAME]? How you been doin'?", otherwise it returns the string "Greetings [name as entered], how have you been lately?"
+Keys here are strings, so you reach a value with `person["name"]`, in square
+brackets and in quotes. A missing key raises a `KeyError` rather than quietly
+giving you nothing, which is usually a kindness.
 
+Dictionaries are **mutable**, like lists. A function that changes one changes
+it for everybody holding it. Some of these questions want exactly that, and
+they say so.
 
-### Question 2 - haveBirthday()
-Write a function `haveBirthday()` that takes in an object `person`. It should increase their `age` property by one. The function returns nothing.
+## From Scratch
 
-Hint: *Be careful with destructuring when modifying object properties*.
+Write your solutions in `src/from_scratch.py`.
 
-### Question 3 - becomeSecretAgent()
-Write a function `becomeSecretAgent()` that takes 2 arguments: an object `person` and a string `spyHandle`. `becomeSecretAgent()` should delete the `name` property from `person` and add the `spyHandle` value as a property with the same name.
+### Question 1: `cool_greeting`
 
-### Question 4 - carMaker()
-Write a function `carMaker` that takes 3 arguments: a string `name`, a string `maker`, and a number `year`. The function should return an object with 4 properties: `name`, `year`, `maker`, and a boolean `needsOilChange`. `needsOilChange` defaults to `false`.
+Write a function `cool_greeting` that takes a `person` dictionary and returns
+a greeting that depends on the `is_cool` key.
 
-### Question 5 - weAreNotFriends()
-Write a function `weAreNotFriends()` that takes in a single `person` object. This function should permanently remove the *last* name from the `person.friends` array (an array of strings), *and* return this value.
+```python
+cool_greeting({"name": "Sara", "is_cool": True})
+# "What is UP SARA? How you been doin'?"
 
-### Question 6 - listHobbies()
-Write a function `listHobbies()` that takes in an object `person`. The `person` is shaped like:
-
-```js
-const jo = {
-  name: 'Jo',
-  age: 34,
-  hobbies: ['running', 'biking', 'baking'],
-};
-```
-The function should log out a statement like this for each hobby:
-
-```js
-listHobbies(jo);
-// logs:
-// Jo likes running.
-// Jo likes biking.
-// Jo likes baking.
+cool_greeting({"name": "Bob", "is_cool": False})
+# "Greetings Bob, how have you been lately?"
 ```
 
-### Question 7 - getNextOpponent()
-Write a function `getNextOpponent()` that takes in an object `team`. The `team` object is complex and shaped like:
+Note the cool version shouts the name. There is a
+[string method](https://www.w3schools.com/python/python_ref_string.asp) for
+that, and you can call it right inside an f-string.
 
-```js
-const fighters = {
-  name: 'Fighters',
-  sport: 'basketball',
-  wins: 3,
-  location: {
-    city: 'Bridgeport',
-    state: 'CT',
-  },
-  matches: [
-    {
-      teamName: 'Dunkaroos',
-      skill: 9,
-      wins: 12,
-    },
-    {
-      teamName: 'Space Jammers',
-      skill: 10,
-      wins: 16,
-    },
-    {
-      teamName: 'Mustangs',
-      skill: 6,
-      wins: 10,
-    },
-  ]
-}
+### Question 2: `have_birthday`
+
+Write a function `have_birthday` that takes a `person` dictionary and adds one
+to their `age`. It changes the dictionary in place and returns nothing.
+
+### Question 3: `become_secret_agent`
+
+Write a function `become_secret_agent` that takes a `person` dictionary and a
+`spy_handle` string. It removes the `name` key entirely and adds a
+`spy_handle` key. It changes the dictionary in place.
+
+```python
+person = {"name": "Sara", "age": 30}
+become_secret_agent(person, "007")
+print(person)   # {"age": 30, "spy_handle": "007"}
 ```
 
-`getNextOpponent()` should return the `teamName` of the first opponent in `matches`. It should only return the name, and not modify the array. If there *is* no team in the array (there will always be an array), return `null`.
+No trace of the old name can be left. Look up how to delete a key rather than
+just blanking it out.
 
-```js
-getNextOpponent(fighters);
-// returns 'Dunkaroos'
+### Question 4: `car_maker`
+
+Write a function `car_maker` that takes a `name`, a `maker`, and a `year`, and
+returns a **new** car dictionary. Every car starts with `needs_oil_change` set
+to `False`.
+
+```python
+car_maker("Civic", "Honda", 2010)
+# {"name": "Civic", "maker": "Honda", "year": 2010, "needs_oil_change": False}
 ```
 
-### Question 8 - listAllKeys()
-Write a function `listAllKeys()` that takes in an object. The function should return an array of all the keys on that object. There's a built in method to do this, do you know it?
+### Question 5: `we_are_not_friends`
 
-### Question 9 - listAllValues()
-Write a function `listAllValues()` that takes in an object. The function should return an array of all the *values* on that object. You can do this a few ways, but just like the above there's a method just for this. Look it up!
+Write a function `we_are_not_friends` that takes a `person` dictionary,
+removes the **last** name from their `friends` list, and returns it.
 
-### Question 10 - convertToMatrix()
-Write a function `convertToMatrix()` that takes in an array of objects. There can be any number of objects in the array (0 is possible), but each object will *always have* the exact same keys as each other. What we want to do is create a matrix version of this data. Remember, a matrix is an array of arrays. In this case, the first child array will be just the keys of the objects, and the rest of the arrays will be the values of the objects. So if we have this array of `user` objects:
-
-```js
-const users = [
-  {
-    name: 'Sara',
-    age: 30,
-    bio: 'What a legend',
-  },
-  {
-    name: 'Bob',
-    age: 30,
-    bio: "Kind of mean if we're being honest",
-  },
-];
+```python
+person = {"name": "Sara", "friends": ["Bob", "Joe", "Sally"]}
+we_are_not_friends(person)   # "Sally"
+print(person["friends"])     # ["Bob", "Joe"]
 ```
 
-We would expect the output matrix to look like this:
+Careful with the empty case. A list method will do most of this for you, but
+it raises an error on an empty list, and the tests expect `None` instead.
+Food for thought.
 
-```js
-[
-  ['name', 'age', 'bio'],
-  ['Sara', 30, 'What a legend'],
-  ['Bob', 30, "Kind of mean if we're being honest"],
-]
+### Question 6: `list_hobbies`
+
+Write a function `list_hobbies` that takes a `person` dictionary and prints a
+line for each of their hobbies.
+
+```text
+Sara likes hiking.
+Sara likes biking.
+Sara likes skiing.
 ```
-Now, if we feed nothing in, expect nothing back:
 
-```js
-convertToMatrix([]);
-// returns []
+This one prints rather than returns. The punctuation has to match exactly.
+
+### Question 7: `get_next_opponent`
+
+Write a function `get_next_opponent` that takes a `team` dictionary and
+returns the `team_name` of the first match in its `matches` list. If there are
+no matches left, return `None`.
+
+```python
+get_next_opponent(fighters)   # "Dunkaroos"
 ```
 
-Check the tests for more specifics. This is a tricky question that relies on understanding object iteration. Think it through!
+The value you want is nested: a dictionary, holding a list, holding more
+dictionaries. Take it one step at a time and print as you go.
+
+### Question 8: `list_all_keys`
+
+Write a function `list_all_keys` that takes any dictionary and returns a list
+of its keys.
+
+```python
+list_all_keys({"name": "Sara", "age": 30})   # ["name", "age"]
+```
+
+Dictionaries have a method for this, but it does not hand you a list directly.
+HmmmmMMMMmmm?
+
+### Question 9: `list_all_values`
+
+Write a function `list_all_values` that takes any dictionary and returns a
+list of its values.
+
+```python
+list_all_values({"name": "Sara", "age": 30})   # ["Sara", 30]
+```
+
+### Question 10: `convert_to_matrix`
+
+Write a function `convert_to_matrix` that takes a list of dictionaries that
+all share the same keys, and returns a **matrix**. A matrix here is a list of
+lists: the first row holds the keys, and every row after it holds one
+record's values.
+
+```python
+convert_to_matrix([
+    {"name": "Sara", "age": 30},
+    {"name": "Bob", "age": 30},
+])
+# [["name", "age"], ["Sara", 30], ["Bob", 30]]
+
+convert_to_matrix([])   # []
+```
+
+This is how a spreadsheet is laid out, and it is what a CSV file looks like
+underneath. You've barely started Marcy and you're already reshaping data.
+
+## Submitting
+
+```sh
+git add -A
+git commit -m "your message"
+git push
+```
+
+Open a pull request to your instructor for feedback.
+
+## Good luck!
+
+Dictionaries are how most real data arrives, so this one pays off quickly.
+You got this!

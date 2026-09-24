@@ -90,25 +90,17 @@ giving you nothing, which is usually a kindness.
 
 Dictionaries are **mutable**, like lists. A function that changes one changes
 it for everybody holding it. That is the single biggest thing to get straight
-here, so there are two diagrams in `ref-examples/` to help.
+here, so there are two diagrams to help:
 
-A string is **immutable**, so assigning it to a second name copies the value
-across. Changing one name leaves the other alone:
+- [Strings pass values](./ref-examples/immutable-values.png) — assigning a
+  string to a second name copies it, so changing one name leaves the other
+  alone.
+- [Dictionaries pass references](./ref-examples/mutable-references.png) — both
+  names point at the *same* dictionary, so a change made through either one
+  shows up in both.
 
-![Two names assigned the same string. Rebinding the first to a new string
-leaves the second holding the original value, because the value was copied
-rather than linked.](./ref-examples/immutable-values.png)
-
-A dictionary is different. Both names point at the *same* dictionary, so a
-change made through either one shows up in both:
-
-![Two names assigned the same dictionary. Both hold a reference to one
-dictionary in memory, so adding a key through either name changes what both
-names see.](./ref-examples/mutable-references.png)
-
-Take one thing from these: with a dictionary, there is only ever one of it. If
-you hand a dictionary to a function and that function changes it, your copy
-changed too.
+With a dictionary there is only ever one of it. Hand one to a function, and if
+that function changes it, your copy changed too.
 
 We are not going to tell you which functions are pure this time — you have to
 check what the tests expect. Be careful and good luck!

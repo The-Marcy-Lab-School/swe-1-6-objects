@@ -161,8 +161,9 @@ Food for thought.
 
 ### Question 6: `list_hobbies`
 
-Write a function `list_hobbies` that takes a `person` dictionary and prints a
-line for each of their hobbies.
+Write a function `list_hobbies` that takes one parameter: a `person`
+dictionary with a `name` and a `hobbies` list. It should print one line per
+hobby and return nothing.
 
 ```text
 Sara likes hiking.
@@ -174,21 +175,36 @@ This one prints rather than returns. The punctuation has to match exactly.
 
 ### Question 7: `get_next_opponent`
 
-Write a function `get_next_opponent` that takes a `team` dictionary and
-returns the `team_name` of the first match in its `matches` list. If there are
-no matches left, return `None`.
+Write a function `get_next_opponent` that takes one parameter: a `team`
+dictionary. It should return the `team_name` of the first match in that team's
+`matches` list, or `None` if there are no matches left.
+
+The `team` dictionary is complex, and shaped like this:
 
 ```python
+fighters = {
+    "name": "Fighters",
+    "sport": "basketball",
+    "wins": 3,
+    "location": {"city": "Bridgeport", "state": "CT"},
+    "matches": [
+        {"team_name": "Dunkaroos", "skill": 9, "wins": 12},
+        {"team_name": "Space Jammers", "skill": 10, "wins": 16},
+    ],
+}
+
 get_next_opponent(fighters)   # "Dunkaroos"
 ```
 
-The value you want is nested: a dictionary, holding a list, holding more
-dictionaries. Take it one step at a time and print as you go.
+The value you want is nested three deep: a dictionary, holding a list, holding
+more dictionaries. Take it one step at a time and print what you have as you
+go.
 
 ### Question 8: `list_all_keys`
 
-Write a function `list_all_keys` that takes any dictionary and returns a list
-of its keys.
+Write a function `list_all_keys` that takes one parameter: any dictionary. It
+should return a list of that dictionary's keys, in the order they were
+added.
 
 ```python
 list_all_keys({"name": "Sara", "age": 30})   # ["name", "age"]
@@ -199,8 +215,9 @@ HmmmmMMMMmmm?
 
 ### Question 9: `list_all_values`
 
-Write a function `list_all_values` that takes any dictionary and returns a
-list of its values.
+Write a function `list_all_values` that takes one parameter: any dictionary.
+It should return a list of that dictionary's values, in the order they were
+added.
 
 ```python
 list_all_values({"name": "Sara", "age": 30})   # ["Sara", 30]
@@ -208,10 +225,13 @@ list_all_values({"name": "Sara", "age": 30})   # ["Sara", 30]
 
 ### Question 10: `convert_to_matrix`
 
-Write a function `convert_to_matrix` that takes a list of dictionaries that
-all share the same keys, and returns a **matrix**. A matrix here is a list of
-lists: the first row holds the keys, and every row after it holds one
-record's values.
+Write a function `convert_to_matrix` that takes one parameter: a list of
+dictionaries. There can be any number of them, and 0 is possible. Each one
+will *always have* the exact same keys as the others.
+
+What we want is a **matrix** version of that data. Remember, a matrix is a
+list of lists. Here the first inner list is just the keys, and every list
+after it holds one dictionary's values.
 
 ```python
 convert_to_matrix([
@@ -223,7 +243,10 @@ convert_to_matrix([
 convert_to_matrix([])   # []
 ```
 
-This is how a spreadsheet is laid out, and it is what a CSV file looks like
+Check the tests for more specifics. This is a tricky one that relies on
+understanding how to iterate over a dictionary. Think it through!
+
+This is how a spreadsheet is laid out, and what a CSV file looks like
 underneath. You've barely started Marcy and you're already reshaping data.
 
 ## Submitting

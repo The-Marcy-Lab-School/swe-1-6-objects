@@ -89,8 +89,29 @@ brackets and in quotes. A missing key raises a `KeyError` rather than quietly
 giving you nothing, which is usually a kindness.
 
 Dictionaries are **mutable**, like lists. A function that changes one changes
-it for everybody holding it. Some of these questions want exactly that, and
-they say so.
+it for everybody holding it. That is the single biggest thing to get straight
+here, so there are two diagrams in `ref-examples/` to help.
+
+A string is **immutable**, so assigning it to a second name copies the value
+across. Changing one name leaves the other alone:
+
+![Two names assigned the same string. Rebinding the first to a new string
+leaves the second holding the original value, because the value was copied
+rather than linked.](./ref-examples/immutable-values.png)
+
+A dictionary is different. Both names point at the *same* dictionary, so a
+change made through either one shows up in both:
+
+![Two names assigned the same dictionary. Both hold a reference to one
+dictionary in memory, so adding a key through either name changes what both
+names see.](./ref-examples/mutable-references.png)
+
+Take one thing from these: with a dictionary, there is only ever one of it. If
+you hand a dictionary to a function and that function changes it, your copy
+changed too.
+
+We are not going to tell you which functions are pure this time — you have to
+check what the tests expect. Be careful and good luck!
 
 ## From Scratch
 
@@ -118,6 +139,9 @@ that, and you can call it right inside an f-string.
 Write a function `have_birthday` that takes a `person` dictionary and adds one
 to their `age`. It changes the dictionary in place and returns nothing.
 
+Hint: *Be careful about pulling a value out into its own variable before you
+change it.*
+
 ### Question 3: `become_secret_agent`
 
 Write a function `become_secret_agent` that takes a `person` dictionary and a
@@ -130,8 +154,10 @@ become_secret_agent(person, "007")
 print(person)   # {"age": 30, "spy_handle": "007"}
 ```
 
-No trace of the old name can be left. Look up how to delete a key rather than
-just blanking it out.
+No trace of the old name can be left, so blanking the value out is not enough.
+If you are stuck, ask your AI tutor in **tutor mode** how removing a key
+differs from setting its value to `None`. Make it explain the idea rather than
+hand you the line.
 
 ### Question 4: `car_maker`
 
